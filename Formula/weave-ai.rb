@@ -5,12 +5,12 @@
 class WeaveAi < Formula
   desc "Weave AI CLI"
   homepage "https://weave.works"
-  version "0.5.0"
+  version "0.6.0"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/weave-ai/weave-ai/releases/download/v0.5.0/weave-ai_0.5.0_darwin_amd64.tar.gz"
-      sha256 "be9ad1350115b7b8042269e70b5c1775f36a7783c6a3915d6de62252b48e72c1"
+    if Hardware::CPU.arm?
+      url "https://github.com/weave-ai/weave-ai/releases/download/v0.6.0/weave-ai_0.6.0_darwin_arm64.tar.gz"
+      sha256 "d75170a3f37b61b512fdba7438d71e372226c9b47550b04eae6335adea86d5b2"
 
       def install
         bin.install "weave-ai"
@@ -18,9 +18,9 @@ class WeaveAi < Formula
         generate_completions_from_executable(bin/"weave-ai", "completion")
       end
     end
-    if Hardware::CPU.arm?
-      url "https://github.com/weave-ai/weave-ai/releases/download/v0.5.0/weave-ai_0.5.0_darwin_arm64.tar.gz"
-      sha256 "4daf6e8ce9a0227dbdba5d5c3d5772d6d8182e66e8e16b12345f553a3197ebcc"
+    if Hardware::CPU.intel?
+      url "https://github.com/weave-ai/weave-ai/releases/download/v0.6.0/weave-ai_0.6.0_darwin_amd64.tar.gz"
+      sha256 "56a3f381ff602794c0073a998c6d72c98c0ba27fa8acc03528d47340bac3db9d"
 
       def install
         bin.install "weave-ai"
@@ -31,9 +31,9 @@ class WeaveAi < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/weave-ai/weave-ai/releases/download/v0.5.0/weave-ai_0.5.0_linux_arm64.tar.gz"
-      sha256 "d44b8e58729bab4e434192a6b6880dfaf52110bfa20059f58ce7269ee511262a"
+    if Hardware::CPU.intel?
+      url "https://github.com/weave-ai/weave-ai/releases/download/v0.6.0/weave-ai_0.6.0_linux_amd64.tar.gz"
+      sha256 "1b147e09afd8f646d628cbb37e3b2092ee905bf3eb80ced3a5cc7804e4fbc482"
 
       def install
         bin.install "weave-ai"
@@ -41,9 +41,9 @@ class WeaveAi < Formula
         generate_completions_from_executable(bin/"weave-ai", "completion")
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/weave-ai/weave-ai/releases/download/v0.5.0/weave-ai_0.5.0_linux_amd64.tar.gz"
-      sha256 "9fdb51060e51e5c07cd36de266b99b296775f13415632de9a9720dddc9a92a07"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/weave-ai/weave-ai/releases/download/v0.6.0/weave-ai_0.6.0_linux_arm64.tar.gz"
+      sha256 "71667655fcb1ab4b10f6d8580c7f740a3ea31652d0f9e96ba10cdd96d676812b"
 
       def install
         bin.install "weave-ai"
