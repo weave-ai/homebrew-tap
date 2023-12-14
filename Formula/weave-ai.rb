@@ -5,12 +5,12 @@
 class WeaveAi < Formula
   desc "Weave AI CLI"
   homepage "https://weave.works"
-  version "0.11.0"
+  version "0.12.0-rc.1"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/weave-ai/weave-ai/releases/download/v0.11.0/weave-ai_0.11.0_darwin_arm64.tar.gz"
-      sha256 "b8067c568fc5547832a4d80f6ed1ef1799b3ad113b7ad78fb81a9936fa2051c0"
+    if Hardware::CPU.intel?
+      url "https://github.com/weave-ai/weave-ai/releases/download/v0.12.0-rc.1/weave-ai_0.12.0-rc.1_darwin_amd64.tar.gz"
+      sha256 "5aadec75af8c145ce8cc5409f95187068fdf4a95b1170616ac972e820b48c878"
 
       def install
         bin.install "weave-ai"
@@ -18,9 +18,9 @@ class WeaveAi < Formula
         generate_completions_from_executable(bin/"weave-ai", "completion")
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/weave-ai/weave-ai/releases/download/v0.11.0/weave-ai_0.11.0_darwin_amd64.tar.gz"
-      sha256 "88d64a9733e1c011c028c3e596f85600e8a06e56331842b2202b13d0968db18b"
+    if Hardware::CPU.arm?
+      url "https://github.com/weave-ai/weave-ai/releases/download/v0.12.0-rc.1/weave-ai_0.12.0-rc.1_darwin_arm64.tar.gz"
+      sha256 "67f2ffee8cc09e5d97632feab9db4fa1398ed465840e317f72ef910a29cd3195"
 
       def install
         bin.install "weave-ai"
@@ -32,8 +32,8 @@ class WeaveAi < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/weave-ai/weave-ai/releases/download/v0.11.0/weave-ai_0.11.0_linux_arm64.tar.gz"
-      sha256 "3dad90f3b6862cf2d4682fb9942fa533269d70be546b8af5f00c71340109d0f7"
+      url "https://github.com/weave-ai/weave-ai/releases/download/v0.12.0-rc.1/weave-ai_0.12.0-rc.1_linux_arm64.tar.gz"
+      sha256 "27b7b61bf80ec364e48d26c1b6e744ff1d43e3e364d4422eac0c5eb343062c82"
 
       def install
         bin.install "weave-ai"
@@ -42,8 +42,8 @@ class WeaveAi < Formula
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/weave-ai/weave-ai/releases/download/v0.11.0/weave-ai_0.11.0_linux_amd64.tar.gz"
-      sha256 "3a152f964def910474a5d1907c54394f386db191ecbd091d947c82922f87bfac"
+      url "https://github.com/weave-ai/weave-ai/releases/download/v0.12.0-rc.1/weave-ai_0.12.0-rc.1_linux_amd64.tar.gz"
+      sha256 "a376be63566b0d7d67778f7792e7b1763ed9914929d91a6b7cdf0ea8e2dac067"
 
       def install
         bin.install "weave-ai"
